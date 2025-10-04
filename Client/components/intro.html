@@ -1,0 +1,44 @@
+<head></head>
+    <link rel="stylesheet" href="/Client/css/intro.css">
+
+</head>
+<body>
+    <div class="container">
+      <div class="panel active" style="background-image: 
+      url('/Client/img/anh1.png')">
+      <h3>Nha Trang</h3>
+      </div>
+
+      <div class="panel" style="background-image: 
+      url('/Client/img/anh3.png')">
+      <h3>Khánh Hoà</h3>
+      </div>
+      <div class="panel" style="background-image: 
+      url(/Client/img/anh2.png)">
+      <h3>Việt Nam</h3>
+      </div>
+      <div class="panel" style="background-image: 
+      url(/Client/img/anh4.png)">
+      <h3></h3>
+      </div> 
+      <div class="panel" style="background-image: 
+      url(/Client/img/anh4.png)">
+      <h3>Khám phá thế giới cùng VBS Travel 4</h3>
+      </div> 
+    </div>
+    <script>
+      const panels = document.querySelectorAll('.panel');
+
+      panels.forEach(panel => {
+          panel.addEventListener('click', () => {
+              removeActiveClasses();
+              panel.classList.add('active');
+          });
+      });
+      function removeActiveClasses() {
+          panels.forEach(panel => {
+              panel.classList.remove('active');
+          }); 
+      }
+    </script>
+</body> 

@@ -1,0 +1,113 @@
+<head>
+    <link rel="stylesheet" href="css/flight_search.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="row">
+        <div class="col-12">
+          <div class="flex justify-between" role="tablist" aria-label="Trip type">
+            <div class="toggle" id="tripTypeToggle">
+              <input type="radio" name="tripType" id="tt-one" value="ONE_WAY" checked>
+              <label for="tt-one">One-way</label>
+              <input type="radio" name="tripType" id="tt-ret" value="RETURN">
+              <label for="tt-ret">Return</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="field">
+            <label for="from">Đi từ</label>
+            <input id="from" type="text" placeholder="SGN – Tan Son Nhat" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="from-list" />
+            <div id="from-list" class="airport-list" role="listbox"></div>
+            <div class="error" id="err-from"></div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="field">
+            <label for="to">Đến</label>
+            <input id="to" type="text" placeholder="HAN – Noi Bai" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="to-list" />
+            <div id="to-list" class="airport-list" role="listbox"></div>
+            <div class="error" id="err-to"></div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="field">
+            <label for="depart">Ngày đi</label>
+            <input id="depart" type="date" />
+            <div class="error" id="err-depart"></div>
+          </div>
+        </div>
+
+        <div class="col-6" id="return-col" style="display:none">
+          <div class="field">
+            <label for="return">Ngày về</label>
+            <input id="return" type="date" />
+            <div class="error" id="err-return"></div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="field">
+            <label for="pax">Hành khách</label>
+            <button id="pax-toggle" class="input-like pax-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span id="pax-summary">1 người lớn</span>
+              <span class="caret" aria-expanded="false">▾</span>
+            </button>
+            <div id="pax-dropdown" class="pax-dropdown" role="listbox" aria-label="Chọn số hành khách">
+              <div class="pax-row">
+                <span>Người lớn</span>
+                <button class="step" data-type="adult" data-op="-">–</button>
+                <button class="step" data-type="adult" data-op="+">+</button>
+              </div>
+              <div class="pax-row">
+                <span>Trẻ em (2–11)</span>
+                <button class="step" data-type="child" data-op="-">–</button>
+                <button class="step" data-type="child" data-op="+">+</button>
+              </div>
+              <div class="pax-row">
+                <span>Em bé (<2) </span>
+                <button class="step" data-type="infant" data-op="-">–</button>
+                <button class="step" data-type="infant" data-op="+">+</button>
+              </div>
+              <div class="pax-actions">
+                <button id="pax-done" class="btn-ghost" type="button">Xong</button>
+              </div>
+            </div>
+            <input type="hidden" id="adult" value="1" />
+            <input type="hidden" id="child" value="0" />
+            <input type="hidden" id="infant" value="0" />
+            <div class="error" id="err-pax"></div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="field">
+            <label for="cabin">Hạng ghế</label>
+            <select id="cabin">
+              <option value="ECONOMY" selected>Economy</option>
+              <option value="PREMIUM_ECONOMY">Premium Economy</option>
+              <option value="BUSINESS">Business</option>
+              <option value="FIRST">First</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="divider"></div>
+          <div class="flex justify-between">
+            <div></div>
+            <button id="btn-submit" class="btn-primary">Tìm chuyến bay</button>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <pre id="output" style="display:none"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
